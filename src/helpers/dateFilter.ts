@@ -33,3 +33,15 @@ export const FormatDate = (date:Date) => {
 
     return `${day <= 9 ? '0' + day : day}/${mouth <= 9 ? '0' + mouth : mouth}/${year}`
 }
+
+export const formatCurrentMonth = (currentMonth: string) =>  {
+    let [year, month] = currentMonth.split('-')
+
+    let months = ['janeiro', 'fevereiro', 'março','abril', 'maio', 'junho', 'julho',
+        'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+
+    
+       
+        
+    return `${months[parseInt(month) -1]} de ${year}`
+}
