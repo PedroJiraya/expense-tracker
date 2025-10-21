@@ -16,8 +16,12 @@ export const FormItems = ({addItem}:Props) => {
     const handleAddEvent = (e: FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
 
+        
+        let newDate = new Date(data)
+        let dateNew = `${newDate.getFullYear()}-${newDate.getMonth() +2}-${newDate.getDate()}`
+
         let newItem:Item = ({
-            date: new Date(data),
+            date: new Date(dateNew) ,
             category: categoria,
             title:titulo,
             value: parseInt(despesa)

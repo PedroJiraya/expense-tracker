@@ -11,6 +11,7 @@ import {
 import { TableArea } from "./components/TableArea";
 import { InfoArea } from "./components/InfoArea";
 import { deflate } from "zlib";
+import { FormItems } from "./components/FormData";
 
 const App = () => {
   const [list, setList] = useState(items);
@@ -45,6 +46,15 @@ const App = () => {
       setIncome(incomeCount);
       setExpense(expenseCount);
   }, [filtredList]);
+
+  const handleAddItem = (addItem:Item) =>{
+    let newList = [...list];
+    newList.push(addItem)
+    setList(newList)
+    console.log(list)
+  }
+
+
   return (
     <C.Container>
       <C.Header>
@@ -57,7 +67,7 @@ const App = () => {
           income={income}
           expense={expense}
         />
-
+        <FormItems addItem={handleAddItem} />
         <TableArea list={filtredList} />
       </C.body>
     </C.Container>
