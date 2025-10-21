@@ -45,3 +45,7 @@ export const formatCurrentMonth = (currentMonth: string) =>  {
         
     return `${months[parseInt(month) -1]} de ${year}`
 }
+
+export const toBrl = (n:number) => {
+    n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})
+}
