@@ -19,16 +19,24 @@ export const FormItems = ({addItem}:Props) => {
         
         let newDate = new Date(data)
         let dateNew = `${newDate.getFullYear()}-${newDate.getMonth() +2}-${newDate.getDate()}`
+        if(data && categoria && titulo && despesa){
 
-        let newItem:Item = ({
+            let newItem:Item = ({
             date: new Date(dateNew) ,
             category: categoria,
             title:titulo,
             value: parseInt(despesa)
         })
-
         addItem(newItem)
         console.log(newItem)
+        }else{
+          alert('Insira os dados corretamente')
+        }
+        setData('')
+        setCategoria('')
+        setTitulo('')
+        setDespesa('')     
+
     }
     
 
@@ -44,7 +52,7 @@ export const FormItems = ({addItem}:Props) => {
       <label>
         Categoria
         <select name="" id="" defaultValue={categoria} onChange={(e) => setCategoria(e.target.value)}>
-          <option selected></option>
+          <option selected> </option>
           <option value="food">Alimentação</option>
           <option value="rent">Aluguel</option>
           <option value="salary">Salario</option>
