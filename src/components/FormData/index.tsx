@@ -22,7 +22,7 @@ export const FormItems = ({addItem}:Props) => {
         if(data && categoria && titulo && despesa){
 
             let newItem:Item = ({
-            date: new Date(dateNew) ,
+            date: new Date(dateNew + 'T00:00:00') ,
             category: categoria,
             title:titulo,
             value: parseInt(despesa)
@@ -51,8 +51,8 @@ export const FormItems = ({addItem}:Props) => {
       </label>
       <label>
         Categoria
-        <select name="" id="" defaultValue={categoria} onChange={(e) => setCategoria(e.target.value)}>
-          <option selected> </option>
+        <select name="" id="" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+          <option value="">Selecione...</option>
           <option value="food">Alimentação</option>
           <option value="rent">Aluguel</option>
           <option value="salary">Salario</option>
